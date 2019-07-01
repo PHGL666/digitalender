@@ -270,7 +270,7 @@ on peut insérer autant d'Assert que l'on veut.
 obs : ctrl + alt + o   =  supprime automatiquement les use inutiles
 
 
-# CRUD
+# CRUD (pour les formulaires)
 crud permet d'auto créer tous les fichiers php et twig, et les routes.
 
 

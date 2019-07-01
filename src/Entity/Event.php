@@ -197,7 +197,7 @@ class Event
         return $this->isValid;
     }
 
-    public function setIsValid(bool $isValid): self
+    public function setIsValid(bool $isValid = false): self
     {
         $this->isValid = $isValid;
 
