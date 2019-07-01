@@ -221,6 +221,18 @@ npm run watch
 ---
 obs : code Ajax, c'est le javascript qui appelle le serveur
 
+
+Rajouter dans base les lignes encore dans fichier base.html.twig
+        {% block stylesheets %}
+            {{ encore_entry_link_tags('app') }}
+        {% endblock %}
+
+    
+        {% block javascripts %}
+            {{ encore_entry_script_tags('app') }}
+        {% endblock %}
+
+
 ## Images statiques versus Images Dynamique
 
 ### Images Statiques :
