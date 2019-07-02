@@ -2,9 +2,9 @@
 
 namespace App\DataFixtures;
 
-use App\Entity\Language;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Persistence\ObjectManager;
+use App\Entity\Language;
 
 class LanguageFixtures extends Fixture
 {
