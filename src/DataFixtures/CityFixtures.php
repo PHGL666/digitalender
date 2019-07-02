@@ -10,17 +10,17 @@ class CityFixtures extends Fixture
 {
     public function load(ObjectManager $manager)
     {
-        $city1 = new city();
+        $city1 = new City();
         $city1->setName("Lannion");
         $manager->persist($city1);
         $this->setReference("city-lannion", $city1);
 
-        $city2 = new city();
+        $city2 = new City();
         $city2->setName("Paris");
         $manager->persist($city2);
         $this->setReference("city-paris", $city2);
 
-        $city3 = new city();
+        $city3 = new City();
         $city3->setName("Rennes");
         $manager->persist($city3);
         $this->setReference("city-rennes", $city3);
