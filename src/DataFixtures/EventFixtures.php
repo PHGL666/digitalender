@@ -26,7 +26,7 @@ class EventFixtures extends Fixture implements DependentFixtureInterface
         $event1 = new Event();
         $event1->setTitle("West Web Festival");
         $event1->setSlug($this->slugger->slugify($event1->getTitle()));
-        $event1->setPicture(null);
+        $event1->setPicture("gen.jpg ");
         $event1->setCity($this->getReference("city-rennes"));
         $event1->addLanguage($this->getReference("language-french"));
         $event1->setUser($this->getReference("user-admin"));
