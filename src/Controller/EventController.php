@@ -7,6 +7,7 @@ use App\Form\EventType;
 use App\Repository\EventRepository;
 use App\Service\Slugger;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -36,11 +37,23 @@ class EventController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            /** @var UploadedFile $pictureFile */
+            $pictureFile = $form["pictureFile"]->getData();
+
+            if ($pictureFile) {
+                $filename = uniqid() . "." . $pictureFile->guessExtension();
+                $pictureFile->move($this->getParameter("upload_dir"), $filename);
+                $event->setPicture($filename);
+            }
+
+            $event->setSlug($slugger->slugify($event->getTitle()));
+            $event->setUser($this->getUser());
+
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($event);
             $entityManager->flush();
 
-            return $this->redirectToRoute('event_index');
+            return $this->redirectToRoute('event_index', ["slug" => $event->getSlug()]);
         }
 
         return $this->render('event/new.html.twig', [

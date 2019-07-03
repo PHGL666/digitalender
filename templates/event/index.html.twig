@@ -7,19 +7,19 @@
 
     <table class="table">
         <thead>
-            <tr>
-                <th>Id</th>
-                <th>Title</th>
-                <th>Slug</th>
-                <th>Picture</th>
-                <th>Description</th>
-                <th>DateStart</th>
-                <th>DateEnd</th>
-                <th>Url</th>
-                <th>Price</th>
-                <th>IsValid</th>
-                <th>actions</th>
-            </tr>
+        <tr>
+            <th>Id</th>
+            <th>Title</th>
+            <th>Slug</th>
+            <th>Picture</th>
+            <th>Description</th>
+            <th>Date_start</th>
+            <th>Date_end</th>
+            <th>Url</th>
+            <th>Price</th>
+            <th>Is_valid</th>
+            <th>actions</th>
+        </tr>
         </thead>
         <tbody>
         {% for event in events %}
@@ -33,8 +33,8 @@
                 <td>{{ event.dateEnd ? event.dateEnd|date('Y-m-d H:i:s') : '' }}</td>
                 <td>{{ event.url }}</td>
                 <td>{{ event.price }}</td>
+
                 <td>{{ event.city }}</td>
-                <td>{{ event.addLanguage() }}</td>
                 <td>{{ event.isValid ? 'Yes' : 'No' }}</td>
                 <td>
                     <a href="{{ path('event_show', {'id': event.id}) }}">show</a>

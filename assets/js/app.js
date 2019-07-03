@@ -1,3 +1,5 @@
+// A theme is also required
+import 'tinymce/themes/modern/theme';
 /*
  * Welcome to your app's main JavaScript file!
  *

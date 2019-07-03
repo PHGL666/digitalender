@@ -244,6 +244,10 @@ nous créons dossier uploads dans lequel nous copions les images "dynamiques".
 
 Exemple dans templates/article/show.html.twig
 
+Dans le controlleur ou nous créons la route de création (d'un article, event etc), une fois ce dernier mis à jour avec le chemin avec /** @var Uploadfile et les instructions correspondante, il faut mettre à jour le fichier services.yaml en ajoutant le paramètre suivant : 
+parameters:
+    upload_dir: '%kernel.project_dir%/public/uploads'
+
 ---
 obs : fonction dump, ex dump($articles); permet d'afficher sur le nav le contenu de la variable.
 
