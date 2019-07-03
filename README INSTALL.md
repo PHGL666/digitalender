@@ -415,8 +415,9 @@ OBS : si on utilise l'autocomplétion le use se met à jour sinon rajouter manue
 puis mettre à jour les données articles avec exemple :
 $article1->setSlug($this->slugger->slugify($article1->getTitle()));
 
-_thumbnail.html.thig de ARTICLE
-remplacer les id par slug
+_thumbnail.html.twig de ARTICLE
+remplacer TOUS les id par slug
+si on met des slugs dans toutes les routes on modifie les id par slug dans les fichiers correspondant.
 
 Controller:
 puis mise à jour du controller ArticleController

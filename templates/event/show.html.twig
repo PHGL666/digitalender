@@ -9,7 +9,7 @@
         <tbody>
             <tr>
                 <th>Id</th>
-                <td>{{ event.id }}</td>
+                <td>{{ event.slug }}</td>
             </tr>
             <tr>
                 <th>Title</th>
@@ -45,6 +45,7 @@
             </tr>
             <tr>
                 <th>IsValid</th>
+                <th>IsValid</th>
                 <td>{{ event.isValid ? 'Yes' : 'No' }}</td>
             </tr>
         </tbody>
@@ -52,7 +53,7 @@
 
     <a href="{{ path('event_index') }}">retour à la liste</a>
 
-    <a href="{{ path('event_edit', {'id': event.id}) }}">modifier</a>
+    <a href="{{ path('event_edit', {'slug': event.slug}) }}">modifier</a>
 
     {{ include('event/_delete_form.html.twig') }}
 {% endblock %}
