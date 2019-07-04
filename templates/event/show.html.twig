@@ -1,59 +1,41 @@
 {% extends 'base.html.twig' %}
-
-{% block title %}Evénement{% endblock %}
-
+{% block title %}Event{% endblock %}
 {% block body %}
-    <h1>Evénement</h1>
-
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ event.slug }}</td>
-            </tr>
-            <tr>
-                <th>Title</th>
-                <td>{{ event.title }}</td>
-            </tr>
-            <tr>
-                <th>Slug</th>
-                <td>{{ event.slug }}</td>
-            </tr>
-            <tr>
-                <th>Picture</th>
-                <td>{{ event.picture }}</td>
-            </tr>
-            <tr>
-                <th>Description</th>
-                <td>{{ event.description }}</td>
-            </tr>
-            <tr>
-                <th>DateStart</th>
-                <td>{{ event.dateStart ? event.dateStart|date('Y-m-d H:i:s') : '' }}</td>
-            </tr>
-            <tr>
-                <th>DateEnd</th>
-                <td>{{ event.dateEnd ? event.dateEnd|date('Y-m-d H:i:s') : '' }}</td>
-            </tr>
-            <tr>
-                <th>Url</th>
-                <td>{{ event.url }}</td>
-            </tr>
-            <tr>
-                <th>Price</th>
-                <td>{{ event.price }}</td>
-            </tr>
-            <tr>
-                <th>IsValid</th>
-                <th>IsValid</th>
-                <td>{{ event.isValid ? 'Yes' : 'No' }}</td>
-            </tr>
-        </tbody>
-    </table>
-
-    <a href="{{ path('event_index') }}">retour à la liste</a>
-
-    <a href="{{ path('event_edit', {'slug': event.slug}) }}">modifier</a>
-
-    {{ include('event/_delete_form.html.twig') }}
+    <h1>Event</h1>
+    <div class="row">
+        <div class="col-md-4">
+            <img src="{{ asset('uploads/' ~ event.picture) }}" alt="{{ event.picture }}" class="fit-image img-thumbnail">
+        </div>
+        <div class="col-md-8">
+            <h1>{{ event.title }}</h1>
+            <span class="badge badge-pill badge-secondary" data-toggle="tooltip" data-placement="top" title="Ville">
+                        <i class="fa fa-map-pin"></i>
+                        {{ event.city }}
+                    </span>
+            <span class="badge badge-pill badge-secondary" data-toggle="tooltip" data-placement="top" title="Dates">
+                        <i class="fa fa-calendar"></i>
+                        {{ event.dateStart|date('d') ~ '-' ~ event.dateEnd|date('d/m/Y')}}
+                    </span>
+            <span class="badge badge-pill badge-secondary" data-toggle="tooltip" data-placement="top"
+                  title="Participants">
+                        <i class="fa fa-users"></i>
+                        16
+                    </span>
+            <a href="https://www.west-web-festival.fr" class="badge badge-pill badge-primary" data-toggle="tooltip"
+               data-placement="top" title="Site internet">
+                <i class="fa fa-globe"></i>
+                {{ event.url }}
+            </a>
+            <span class="badge badge-pill badge-secondary" data-toggle="tooltip" data-placement="top" title="Prix">
+                {% if event.price == 0 %}
+                    Gratuit
+                {% else %}
+                    <i class="fa fa-euro"></i>
+                    {{ event.price }}
+                {% endif %}
+                    </span>
+            <p>{{ event.description}}</p>
+            <a href="#" class="btn btn-primary btn-lg">J'y vais !</a>
+        </div>
+    </div>
 {% endblock %}

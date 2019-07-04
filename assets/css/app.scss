@@ -11,6 +11,12 @@ html {
     object-fit: contain;
 }
 
+.fit-image{
+    width: 100%;
+    object-fit: cover;
+    height: 300px; /* only if you want fixed height */
+}
+
 .jumbotron {
     padding-top: 3rem;
     padding-bottom: 3rem;
@@ -44,3 +50,4 @@ footer {
 footer p {
     margin-bottom: .25rem;
 }
+
