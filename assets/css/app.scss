@@ -13,8 +13,8 @@ html {
 
 .fit-image{
     width: 100%;
-    object-fit: cover;
-    height: 300px; /* only if you want fixed height */
+    object-fit: contain;
+    height: 250px; /* only if you want fixed height */
 }
 
 .jumbotron {
