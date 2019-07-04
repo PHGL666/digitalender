@@ -19,7 +19,6 @@ CONSTRUCTION FLOW
 - Ajout d'une page admin avec composer req admin
     modification dans easyadmin.yaml des entity
 
-
-    
+/public/build/
     
     
