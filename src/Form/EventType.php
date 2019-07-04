@@ -2,17 +2,15 @@
 
 namespace App\Form;
 
+use App\Entity\City;
 use App\Entity\Event;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
-use Symfony\Component\Form\Extension\Core\Type\LanguageType;
-use Symfony\Component\Form\Extension\Core\Type\NumberType;
-use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\UrlType;
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\Form\Tests\Extension\Core\Type\TextTypeTest;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class EventType extends AbstractType
@@ -26,28 +24,21 @@ class EventType extends AbstractType
             ->add('pictureFile', FileType::class, [
                 'mapped' => false,
                 'required' => false,
-                'label' => 'Image'
             ])
-            ->add('city', TextType::class, [
+            ->add('city', EntityType::class, [
+                'class' => City::class,
                 'label' => 'Ville'
             ])
-            ->add('description', TextareaType::class, [
-                'label' => 'Description'
-            ])
+            ->add('description')
             ->add('dateStart', DateType::class, [
                 'label' => 'Date de début'
             ])
             ->add('dateEnd', DateType::class, [
                 'label' => 'Date de fin'
             ])
-            ->add('url', UrlType::class, [
-                'label' => 'Adresse url'
-            ])
-            ->add('price', NumberType::class, [
-                'label' => 'Prix'
-            ])
-            ->add('language')
-        ;
+            ->add('url')
+            ->add('price')
+            ->add('language');
     }
 
     public function configureOptions(OptionsResolver $resolver)
