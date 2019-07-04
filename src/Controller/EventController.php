@@ -116,7 +116,7 @@ class EventController extends AbstractController
 
         return $this->redirectToRoute('event_index', [
             'id' => $event->getId(),
-            "slug" => $event->getSlug(),
+            'slug' => $event->getSlug(),
         ]);
     }
 }
