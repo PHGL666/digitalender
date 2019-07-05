@@ -22,7 +22,7 @@ class RegistrationFormType extends AbstractType
                 // this is read and encoded in the controller
                 'type' => PasswordType::class,
                 'first_options' => ['label' => 'Mot de passe'],
-                'second_options' => ['label' => 'Répétez Mot de passe'],
+                'second_options' => ['label' => 'Confirmez votre Mot de passe'],
                 'mapped' => false,
                 'constraints' => [
                     new NotBlank([

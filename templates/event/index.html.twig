@@ -34,8 +34,6 @@
                                                     <a href="{{ path('event_show', {'slug': event.slug}) }}" class="btn btn-sm btn-outline-secondary">Voir</a>
                                                     {% if app.user == event.user or is_granted('ROLE_ADMIN')%}
                                                     <a href="{{ path('event_edit', {'slug': event.slug}) }}" class="btn btn-sm btn-outline-secondary">Modifier</a>
-                                                    {% else %}
-
                                                     {% endif %}
                                                 </div>
                                                 <small class="text-muted">{{ event.city }}
@@ -46,7 +44,7 @@
                                 </div>
                             {% else %}
                                 <tr>
-                                    <td colspan="11">Aucune donnée</td>
+                                    <td colspan="11">Aucun événement actuellement</td>
                                 </tr>
                             {% endfor %}
                         </div>

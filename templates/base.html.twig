@@ -11,7 +11,7 @@
 <body>
 {% block header %}
     <header>
-        <div class="navbar navbar-dark bg-dark shadow-sm">
+        <div class="navbar navbar-dark bg-dark shadow-sm" id="uppage">
             <div class="container d-flex justify-content-between">
                 <a href="{{ path('homepage') }}" class="navbar-brand d-flex align-items-center">
                     <strong>Digitalendar</strong>
@@ -55,7 +55,7 @@
     <footer class="text-muted">
         <div class="container">
             <p class="float-right">
-                <a href="#">Haut de page</a>
+                <a href="#uppage">Haut de page</a>
             </p>
             <p>&copy; Digitalendar 2019</p>
         </div>
